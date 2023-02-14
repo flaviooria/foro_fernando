@@ -1,0 +1,17 @@
+https://tailwindcss.com/docs/guides/sveltekit
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init tailwind.config.cjs -p
+
+inside app.css copy and page
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+insdie +layout.svelte
+
+<script>
+  import "../app.css";
+</script>
+
+<slot />
