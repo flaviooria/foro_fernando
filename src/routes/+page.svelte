@@ -1,8 +1,7 @@
 <script>
-    // Recibimos los datos del form
+    // Recibimos los datos del form, que son pasados por +page.server.js
     export let form;
-    console.log(form);
-
+	
     let showPassword = false;
     const handleShowPassword = () => (showPassword = !showPassword);
 </script>

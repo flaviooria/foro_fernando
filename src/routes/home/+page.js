@@ -1,5 +1,6 @@
 /** @type {import('./$types').PageLoad} */
-export async function load({ fetch }) {
+export async function load({ fetch}) {
+	// petición a issues para cargar en el home
 	const response = await fetch('/api/issues', {
 		headers: {
 			api_key: '123456789'

@@ -5,21 +5,22 @@
 	// Obtengo data de +page.server.js
 	export let form;
 
-	let name = data.username;
+	const { user } = data;
+	const { name,surname, avatar:src } = user;
 </script>
 
 <section class="p-5">
 	<div class="text-center">
 		<img
-			src="https://ui-avatars.com/api/?background=BACFA9&name=laura+cabezas&rounded=true"
+			{src}
 			class="rounded-full w-32 mb-4 mx-auto"
 			alt="Avatar"
 		/>
-		<h5 class="text-xl font-medium leading-tight mb-2 text-white">{name}</h5>
+		<h5 class="text-xl font-medium leading-tight mb-2 text-white">{name} {surname}</h5>
 		<p class="text-white">Rol: Estuadiante</p>
 		<p class="text-white">Instituto: I.E.S Fernando III</p>
 	</div>
-  <section>
-	<Form form={form} nameButton={'Editar'}  />
+  <section class="flex items-center justify-center ">
+	<Form form={form} nameButton={'Editar'} width={'w-5/6'} />
   </section>
 </section>

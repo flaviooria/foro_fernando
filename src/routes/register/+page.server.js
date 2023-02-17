@@ -38,7 +38,7 @@ export const actions = {
 		if (res.status != 201) {
 			return fail(400, {invalid: true, message: 'No se pudo registrar, intentelo de nuevo'})
 		}
-		
+
 		throw redirect(303, '/');
 	}
 };

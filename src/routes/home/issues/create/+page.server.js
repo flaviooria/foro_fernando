@@ -5,8 +5,9 @@ export async function load({ fetch, request }) {
     return {};
 }
 
+
 export const actions = {
-    default: async ({request, fetch}) => {
+    default: async ({request, fetch, locals}) => {
         const formData = await request.formData();
         const name = formData.get('name');
         const category = formData.get('category');
@@ -16,10 +17,13 @@ export const actions = {
             return fail(400,{invalid: true, message: 'Campos no pueden estar vacios'})
         }
 
+        const { id } = locals.user;
+
         const issue = {
             name,
             category,
-            asignature
+            asignature,
+            student_id: id
         };
 
         const res = await fetch('/api/issues', {

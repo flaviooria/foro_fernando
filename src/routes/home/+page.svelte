@@ -1,10 +1,17 @@
 <script>
-	import AnswerSection from '../../lib/components/AnswerSection.svelte';
-
 	// Recibo la data que me ha enviado mi +page.js que obtiene los datos de la api
 	export let data;
 
-	let issues = data.issues ?? [];
+	const { user, issues: listIssues } = data;
+	const { name, surname } = user;
+
+
+	const capitalizeString = (word) => {
+		return word[0].toUpperCase() + word.substring(1);
+	}
+	
+
+	let issues = listIssues ?? [];
 	let querySearch = '';
 	let filteredIssues = [];
 
@@ -19,6 +26,7 @@
 
 <section class="p-3">
 	<section class="grid grid-cols-1">
+		<h1 class="text-xl text-white">Bienvenido {capitalizeString(name)} {capitalizeString(surname)}</h1>
 		<input
 			class="text-xl p-2 my-5 w-full rounded-md outline-none text-primary placeholder:text-primary"
 			type="search"
@@ -36,7 +44,7 @@
 					href="home/issues/{id}"
 				>
 					<p>{name}</p>
-					<p>Fecha:{date}</p>
+					<p class="text-right font-medium">{date}</p>
 				</a>
 			{/each}
 		{:else}
