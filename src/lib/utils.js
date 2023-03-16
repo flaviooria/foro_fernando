@@ -7,4 +7,13 @@ function verifyEmail(email, domain = 'fernando.es') {
 	return email.substring(posAt + 1) === domain;
 }
 
-export { verifyEmail };
+/**
+ * 
+ * @param {string} word 
+ * @returns Retorna la palabra con la primera letra en mayuscula.
+ */
+const capitalizeString = (word) => {
+	return word[0].toUpperCase() + word.substring(1);
+};
+
+export { verifyEmail, capitalizeString };

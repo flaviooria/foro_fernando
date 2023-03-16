@@ -3,7 +3,6 @@
     export let form;
 	export let nameButton = '';
 	export let width = 'w-2/3';
-	console.log({form});
 
     let showPassword = false;
     const handleShowPassword = () => (showPassword = !showPassword);

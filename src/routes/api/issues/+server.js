@@ -4,6 +4,7 @@
 // Vamos a obtener nuestras variables de entorno, para eso podemos utilizar $env/static/private, pero solo funcionan el los archivos server
 import { API_KEY } from '$env/static/private';
 import { error, json } from '@sveltejs/kit';
+const PUBLIC_DOMAIN = process.env.PUBLIC_DOMAIN || 'localhost';
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ request }) {
@@ -13,7 +14,7 @@ export async function GET({ request }) {
 		return new Response(json({ message: 'Invalid credentials' }, { status: 401 }));
 	}
 
-	const res = await fetch('http://localhost:3000/api/v1/issues/');
+	const res = await fetch(`http://${PUBLIC_DOMAIN}:3000/api/v1/issues/`);
 	const data = await res.json();
 
 	if (!data) {
@@ -34,7 +35,7 @@ export async function POST({ request }) {
 		return json({ message: 'Invalid credentials' }, { status: 401 });
 	}
 
-	const res = await fetch('http://127.0.0.1:3000/api/v1/issues/', {
+	const res = await fetch(`http://${PUBLIC_DOMAIN}:3000/api/v1/issues/`, {
 		method: 'POST',
 		body: JSON.stringify(body),
         headers: {"Content-type": "application/json; charset=UTF-8"}

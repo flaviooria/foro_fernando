@@ -7,10 +7,6 @@
 	];
 
 	let selected;
-
-	$: {
-		console.log(selected);
-	}
 </script>
 
 <section class="p-5">

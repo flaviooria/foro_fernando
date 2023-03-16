@@ -1,9 +1,12 @@
 <script>
 	import Form from '$lib/components/Form.svelte';
+	import { capitalizeString } from '$lib/utils.js';
 	//  Obtengo los datos de +page.js
 	export let data;
 	// Obtengo data de +page.server.js
 	export let form;
+	console.log('form =>',form);
+	console.log('data =>',data);
 
 	const { user } = data;
 	const { name,surname, avatar:src } = user;
@@ -16,7 +19,7 @@
 			class="rounded-full w-32 mb-4 mx-auto"
 			alt="Avatar"
 		/>
-		<h5 class="text-xl font-medium leading-tight mb-2 text-white">{name} {surname}</h5>
+		<h5 class="text-xl font-medium leading-tight mb-2 text-white">{capitalizeString(name)} {capitalizeString(surname)}</h5>
 		<p class="text-white">Rol: Estuadiante</p>
 		<p class="text-white">Instituto: I.E.S Fernando III</p>
 	</div>

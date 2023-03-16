@@ -1,15 +1,12 @@
 <script>
+	import { capitalizeString } from '$lib/utils.js';
+
 	// Recibo la data que me ha enviado mi +page.js que obtiene los datos de la api
 	export let data;
 
 	const { user, issues: listIssues } = data;
 	const { name, surname } = user;
 
-
-	const capitalizeString = (word) => {
-		return word[0].toUpperCase() + word.substring(1);
-	}
-	
 
 	let issues = listIssues ?? [];
 	let querySearch = '';

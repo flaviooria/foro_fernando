@@ -4,7 +4,8 @@
 	// Obtengo la issue que me pasan por page.js
 	export let data;
 	let issue = data.issue;
-    console.log(issue);
+	let answers = data.answers;
+
 
     export let form;
 
@@ -18,14 +19,14 @@
 			Asignatura: <span class="text-white font-medium">{asignature}</span>
 		</p>
 	</div>
-	<AnswerSection {category} />
+	<AnswerSection {category} {answers}/>
 	<form action="?/answer" method="post">
 		<div class="flex">
 			<div class="mb-3 w-5/6">
                 {#if form?.invalid}
                     <p class="mb-2 text-orange-300">{form?.message}</p>
                 {/if}
-				<label for="content" class="form-label inline-block mb-2 text-white"
+				<label for="content" class="form-label inline-block mb-2 text-white text-lg"
 					>Indica tú respuesta</label
 				>
 				<textarea
@@ -50,7 +51,6 @@
 					rows="3"
 					placeholder="Escribe o pega tu contenido"
 				/>
-                <input type="hidden" name="id_issue" value={issue.id}>
 			</div>
 		</div>
         <button class="bg-white p-3 w-5/6 rounded-sm text-primary text-lg hover:bg-terniary hover:text-white hover:transition-all hover:ease-in hover:duration-700 duration-300 mt-3" type="submit">Realizar respuesta</button>
